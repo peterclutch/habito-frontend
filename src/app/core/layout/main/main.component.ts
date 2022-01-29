@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { GuardsCheckEnd, GuardsCheckStart, NavigationCancel, NavigationEnd, Router } from '@angular/router';
 import { AutoUnsubscriber } from '../../../shared/util/auto-unsubscriber';
 import { DisplayedRouteService } from '../../../shared/service/displayed-route.service';
 
@@ -10,6 +10,7 @@ import { DisplayedRouteService } from '../../../shared/service/displayed-route.s
 })
 export class MainComponent extends AutoUnsubscriber implements OnInit {
   menuHidden: boolean = false;
+  loading: boolean = true;
 
   constructor(
     private routeService: DisplayedRouteService,
@@ -19,6 +20,16 @@ export class MainComponent extends AutoUnsubscriber implements OnInit {
   }
 
   ngOnInit(): void {
+    this.router.events.subscribe(event => {
+      if (event instanceof GuardsCheckStart) {
+        this.loading = true;
+      }
+
+      if (event instanceof GuardsCheckEnd || event instanceof NavigationCancel) {
+        this.loading = false;
+      }
+    });
+
     this.registerSubscription(
       this.router.events.subscribe(event => {
         if (event instanceof NavigationEnd) {

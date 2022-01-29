@@ -1,8 +1,19 @@
-<div *ngIf="menuHidden">
-  <router-outlet></router-outlet>
+<div *ngIf="!loading">
+    <div *ngIf="menuHidden">
+        <router-outlet></router-outlet>
+    </div>
+    <div *ngIf="!menuHidden">
+        <ha-layout>
+            <router-outlet></router-outlet>
+        </ha-layout>
+    </div>
 </div>
-<div *ngIf="!menuHidden">
-    <ha-layout>
-      <router-outlet></router-outlet>
-    </ha-layout>
+
+<div class="loader-wrapper" *ngIf="loading">
+    <h1>habito🪴</h1>
+    <div class="loader">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 </div>
