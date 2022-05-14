@@ -17,6 +17,10 @@ export class Routes {
     return '/login/reset';
   }
 
+  public static createUser(): string {
+    return '/login/create'
+  }
+
   // ERROR
   public static accessDenied(): string {
     return '/access-denied';

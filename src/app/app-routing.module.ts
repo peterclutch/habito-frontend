@@ -6,12 +6,28 @@ import { LoginComponent } from './modules/login/login.component';
 import { AccountViewComponent } from './modules/account/account-view/account-view.component';
 import { AuthoritiesGuard } from './core/auth/authorities.guard';
 import { HabitResolver } from './shared/resolver/habit.resolver';
+import { AccountCreateComponent } from './modules/account/account-create/account-create.component';
+import { AccountActivateComponent } from './modules/account/account-activate/account-activate.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: 'login',
     component: LoginComponent,
+    data: {
+      isMenuHidden: true
+    }
+  },
+  {
+    path: 'login/create',
+    component: AccountCreateComponent,
+    data: {
+      isMenuHidden: true
+    }
+  },
+  {
+    path: 'login/activate',
+    component: AccountActivateComponent,
     data: {
       isMenuHidden: true
     }

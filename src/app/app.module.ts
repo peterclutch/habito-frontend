@@ -36,6 +36,9 @@ import { ConfirmModalComponent } from './shared/modal/confirm-modal/confirm-moda
 import { MonthDisplayComponent } from './shared/component/visualization/month-display/month-display.component';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { SingleMonthDisplayComponent } from './shared/component/visualization/month-display/single-month-display/single-month-display.component';
+import { AccountCreateComponent } from './modules/account/account-create/account-create.component';
+import { PasswordFieldComponent } from './shared/component/form/password/password-field.component';
+import { AccountActivateComponent } from './modules/account/account-activate/account-activate.component';
 
 registerLocaleData(en);
 
@@ -60,6 +63,9 @@ registerLocaleData(en);
     ConfirmModalComponent,
     MonthDisplayComponent,
     SingleMonthDisplayComponent,
+    AccountCreateComponent,
+    PasswordFieldComponent,
+    AccountActivateComponent
   ],
   imports: [
     BrowserModule,

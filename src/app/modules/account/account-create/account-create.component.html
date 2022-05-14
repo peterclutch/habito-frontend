@@ -1,0 +1,54 @@
+<div class="page-container">
+    <ha-card>
+        <a (click)="back()">Back</a>
+
+        <form [formGroup]="accountFormGroup">
+            <div class="form-group">
+                <ha-label for="first-name">First name</ha-label>
+                <ha-text
+                        name="first-name"
+                        type="text"
+                        placeholder="Your first name"
+                        formControlName="firstName"
+                        [autoSelect]="true"
+                >
+                </ha-text>
+            </div>
+            <div class="form-group">
+                <ha-label for="last-name">Last name</ha-label>
+                <ha-text
+                        name="last-name"
+                        type="text"
+                        placeholder="Your last name"
+                        formControlName="lastName"
+                >
+                </ha-text>
+            </div>
+
+            <div class="form-group">
+                <ha-label for="email">Email</ha-label>
+                <ha-text
+                        name="email"
+                        type="email"
+                        placeholder="Your email"
+                        formControlName="email"
+                >
+                </ha-text>
+            </div>
+
+            <ha-password-field (linkToParent)="linkFormGroup($event)"></ha-password-field>
+
+            <button
+                    haButton
+                    [haButtonType]="buttonType.HERO_SECONDARY"
+                    type="submit"
+                    [disabled]="accountFormGroup.invalid || loading"
+                    (click)="create()"
+            >
+                <ha-loader *ngIf="loading"></ha-loader>
+                <span>Create account</span>
+            </button>
+
+        </form>
+    </ha-card>
+</div>

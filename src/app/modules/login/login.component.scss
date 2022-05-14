@@ -30,8 +30,9 @@
 
       &:last-child {
         display: flex;
-        flex-direction: row-reverse;
+        justify-content: space-between;
         align-items: center;
+        margin-bottom: 0;
       }
     }
   }
@@ -44,16 +45,16 @@
   color: $color-primary;
 }
 
-.password-forgotten {
+a {
   padding: 0 2px;
-  box-shadow: inset 0 -5px 0 hsla(245, 100%, 60%, 50%);
+  box-shadow: inset 0 -5px 0 hsla(333, 100%, 45%, 50%);
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.4px;
   text-transform: lowercase;
 
   &:hover {
-    box-shadow: inset 0 -10px 0 hsla(245, 100%, 60%, 40%);
+    box-shadow: inset 0 -10px 0 hsla(333, 100%, 45%, 40%);
     transition: all 0.2s ease-in-out;
   }
 }

@@ -1,9 +1,10 @@
-import {Component, OnInit,} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
 import { AccountService } from '../../core/auth/account.service';
 import { ButtonType } from '../../shared/directive/button/button.directive';
+import { Routes } from '../../routes';
 
 @Component({
   selector: 'ha-login',
@@ -62,6 +63,10 @@ export class LoginComponent implements OnInit {
           this.loading = false;
         }
       );
+  }
+
+  create() {
+    this.router.navigate([Routes.createUser()]);
   }
 
   reset() {

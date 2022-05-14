@@ -78,4 +78,14 @@ export class AccountService {
       this.router.navigateByUrl(previousUrl);
     }
   }
+
+  public create(account: Account): Observable<null> {
+    const url = `${SERVER_API_URL}api/register`;
+    return this.http.post<null>(url, account, { observe: 'body' });
+  }
+
+  public activate(key: string): Observable<null> {
+    const url = `${SERVER_API_URL}api/activate`;
+    return this.http.get<null>(url, { observe: 'body', params: { key: key }});
+  }
 }
