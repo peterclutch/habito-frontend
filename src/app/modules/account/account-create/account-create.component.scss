@@ -1,0 +1,60 @@
+@import "ha_variables";
+
+.page-container {
+  padding: 18px;
+}
+
+.title {
+  margin-right: 12px;
+  margin-bottom: 12px;
+  font-size: 24px;
+  letter-spacing: -.5px;
+}
+
+.row {
+  margin: 18px 0 0;
+
+  &--flex {
+    display: flex;
+    flex-direction: row;
+    @extend .row;
+
+    > div:not(:first-child) {
+      padding-left: 6px;
+    }
+
+    > div:not(:last-child) {
+      padding-right: 6px;
+    }
+  }
+
+  &--action {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 36px 0 0;
+  }
+}
+
+.input-wrapper {
+  width: 100%;
+}
+
+@media screen and (max-width: $mobile-max-width) {
+  .page-container {
+    padding: 0;
+  }
+
+  .row--flex {
+      flex-direction: column;
+
+      > div:not(:first-child) {
+        margin: 18px 0 0;
+        padding-left: 0;
+      }
+
+      > div:not(:last-child) {
+        padding-right: 0;
+      }
+    }
+}

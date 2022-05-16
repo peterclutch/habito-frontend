@@ -10,18 +10,18 @@
 
   <div class="buttons">
     <button
+            haButton
+            [haButtonType]="buttonType.HERO_SIMPLE"
+            (click)="close()">
+      Cancel
+    </button>
+
+    <button
       haButton
       [haButtonType]="buttonType.HERO_SECONDARY"
       (click)="confirm()"
     >
       <span>Confirm</span>
-    </button>
-
-    <button
-      haButton
-      [haButtonType]="buttonType.HERO_SIMPLE"
-      (click)="close()">
-      Cancel
     </button>
   </div>
 </div>

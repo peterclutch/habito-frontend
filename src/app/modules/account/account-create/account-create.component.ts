@@ -5,6 +5,7 @@ import { Routes } from '../../../routes';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ButtonType } from '../../../shared/directive/button/button.directive';
+import { CardSize } from '../../../shared/component/card/card.component';
 
 @Component({
   selector: 'ha-account-create',
@@ -20,6 +21,7 @@ export class AccountCreateComponent implements OnInit {
   });
   loading = false;
   buttonType = ButtonType;
+  cardSize = CardSize;
 
   constructor(
       private formBuilder: FormBuilder,
