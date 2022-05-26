@@ -7,7 +7,6 @@
 
   color: $color-white;
   text-align: center;
-  border-radius: 7px;
   overflow: hidden;
   text-transform: uppercase;
   -webkit-user-select: none; /* Safari */
@@ -20,6 +19,8 @@
     height: 132px;
     min-width: 132px;
     line-height: 132px;
+    font-size: 64px;
+    border-radius: 21px;
     @extend .avatar;
   }
 
@@ -29,9 +30,7 @@
     min-width: 45px;
     line-height: 45px;
     font-size: 22px;
+    border-radius: 7px;
     @extend .avatar;
   }
-}
-.empty {
-  background: $color-smoke;
 }

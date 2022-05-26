@@ -1,0 +1,49 @@
+@import "ha-colors";
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+
+  > div:first-child {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-right: 12px;
+    font-size: 24px;
+    letter-spacing: -.5px;
+  }
+}
+
+.section {
+  margin: 12px 0;
+  padding: 0 0 48px;
+  border-bottom: 3px solid rgba(68, 51, 255, 0.1);
+}
+
+.info {
+  margin-top: 12px;
+
+  .name {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .email {
+    color: $color-seal;
+    font-size: 16px;
+
+    span {
+      color: $color-warning;
+      font-style: italic;
+    }
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: end;
+}

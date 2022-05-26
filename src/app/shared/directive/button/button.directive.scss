@@ -36,6 +36,15 @@
   &.hero-simple {
     color: $color-secondary;
     background: $color-white;
+
+    &--purple {
+      color: $color-primary;
+      background: $color-white;
+      border: 1px solid $color-primary;
+      height: 38px;
+      padding: 0 16px;
+      min-width: 0;
+    }
   }
 
   &::before {

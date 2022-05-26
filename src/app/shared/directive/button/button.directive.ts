@@ -10,6 +10,7 @@ export class ButtonDirective implements OnChanges {
     [ButtonType.HERO_PRIMARY, 'hero hero-primary'],
     [ButtonType.HERO_SECONDARY, 'hero hero-secondary'],
     [ButtonType.HERO_SIMPLE, 'hero hero-simple'],
+    [ButtonType.HERO_SIMPLE_PURPLE, 'hero hero-simple--purple'],
   ]);
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {}
@@ -38,4 +39,5 @@ export enum ButtonType {
   HERO_PRIMARY = 'HERO_PRIMARY',
   HERO_SECONDARY = 'HERO_SECONDARY',
   HERO_SIMPLE = 'HERO_SIMPLE',
+  HERO_SIMPLE_PURPLE = 'HERO_SIMPLE_PURPLE'
 }

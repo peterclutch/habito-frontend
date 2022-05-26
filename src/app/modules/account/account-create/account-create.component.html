@@ -3,31 +3,6 @@
         <div class="title">🪴 Create your own habito account!</div>
 
         <form [formGroup]="accountFormGroup">
-
-            <div class="row--flex">
-                <div class="input-wrapper">
-                    <ha-label for="first-name">First name</ha-label>
-                    <ha-text
-                            name="first-name"
-                            type="text"
-                            placeholder="Your first name"
-                            formControlName="firstName"
-                            [autoSelect]="true"
-                    >
-                    </ha-text>
-                </div>
-                <div class="input-wrapper">
-                    <ha-label for="last-name">Last name</ha-label>
-                    <ha-text
-                            name="last-name"
-                            type="text"
-                            placeholder="Your last name"
-                            formControlName="lastName"
-                    >
-                    </ha-text>
-                </div>
-            </div>
-
             <div class="row">
                 <div class="input-wrapper">
                     <ha-label for="email">Email</ha-label>
@@ -36,6 +11,7 @@
                             type="email"
                             placeholder="Your email"
                             formControlName="email"
+                            [autoSelect]="true"
                     >
                     </ha-text>
                 </div>

@@ -1,3 +1,29 @@
 <ha-card>
-  <a (click)="logout()">logout</a>
+  <header>
+    <div>Profile</div>
+    <button
+            haButton
+            [haButtonType]="buttonType.HERO_SIMPLE_PURPLE">
+      Edit
+    </button>
+  </header>
+
+  <div class="section">
+    <ha-avatar [initials]="account | initials" [size]="avatarSize.LARGE"></ha-avatar>
+    <div class="info">
+      <div class="name">{{ account?.firstName }} {{ account?.lastName }}</div>
+      <div class="email">
+        {{ account?.email }}<span *ngIf="account && !account?.activated"> — pending activation</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <button
+            haButton
+            [haButtonType]="buttonType.HERO_SIMPLE"
+            (click)="logout()">
+      👋 Logout
+    </button>
+  </footer>
 </ha-card>
