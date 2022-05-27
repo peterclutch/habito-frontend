@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import {Observable, of, ReplaySubject} from 'rxjs';
+import { Observable, of, ReplaySubject } from 'rxjs';
 import { shareReplay, tap, catchError } from 'rxjs/operators';
 
 import { SERVER_API_URL } from '../../app.constants';
@@ -79,12 +79,12 @@ export class AccountService {
     }
   }
 
-  public create(account: Account): Observable<null> {
+  create(account: Account): Observable<null> {
     const url = `${SERVER_API_URL}api/register`;
     return this.http.post<null>(url, account, { observe: 'body' });
   }
 
-  public activate(key: string): Observable<null> {
+  activate(key: string): Observable<null> {
     const url = `${SERVER_API_URL}api/activate`;
     return this.http.get<null>(url, { observe: 'body', params: { key: key }});
   }

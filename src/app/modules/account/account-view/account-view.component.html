@@ -3,7 +3,9 @@
     <div>Profile</div>
     <button
             haButton
-            [haButtonType]="buttonType.HERO_SIMPLE_PURPLE">
+            [haButtonType]="buttonType.HERO_SIMPLE_PURPLE"
+            (click)="edit()"
+    >
       Edit
     </button>
   </header>
@@ -22,7 +24,8 @@
     <button
             haButton
             [haButtonType]="buttonType.HERO_SIMPLE"
-            (click)="logout()">
+            (click)="logout()"
+    >
       👋 Logout
     </button>
   </footer>

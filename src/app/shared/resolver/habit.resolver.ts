@@ -4,21 +4,22 @@ import { IHabit } from '../model/habit.model';
 import { HabitService } from '../service/habit.service';
 import { EMPTY, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Routes } from '../../routes';
 
 @Injectable({ providedIn: 'root' })
 export class HabitResolver implements Resolve<IHabit> {
-  constructor(
-    private habitService: HabitService,
-    private router: Router
-  ) {}
+    constructor(
+        private habitService: HabitService,
+        private router: Router
+    ) {}
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IHabit> {
-    const id = route.params.id;
-    return this.habitService.get(id).pipe(
-      catchError(() => {
-        this.router.navigate(['/']);
-        return EMPTY;
-      })
-    );
-  }
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IHabit> {
+        const id = route.params.id;
+        return this.habitService.get(id).pipe(
+            catchError(() => {
+                this.router.navigate([Routes.error]);
+                return EMPTY;
+            })
+        );
+    }
 }

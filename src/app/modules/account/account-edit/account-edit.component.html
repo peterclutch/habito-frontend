@@ -1,0 +1,60 @@
+<ha-header-full
+        title="Edit profile"
+        (backEvent)="back()"
+></ha-header-full>
+
+<div class="container">
+    <ha-card>
+        <form [formGroup]="profileFormGroup">
+            <div class="title"><em nz-icon nzType="ic-information"></em> General information</div>
+
+            <div class="input-row inline">
+                <div class="form-group">
+                    <ha-label for="first-name">first name</ha-label>
+                    <ha-text
+                            name="first-name"
+                            type="text"
+                            placeholder="Your frist name"
+                            formControlName="firstName"
+                            [autoSelect]="true"
+                    >
+                    </ha-text>
+                </div>
+                <div class="form-group">
+                    <ha-label for="last-name">last name</ha-label>
+                    <ha-text
+                            name="last-name"
+                            type="text"
+                            placeholder="Your last name"
+                            formControlName="lastName"
+                    >
+                    </ha-text>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <ha-label for="email">email</ha-label>
+                <ha-text
+                        name="email"
+                        type="email"
+                        placeholder="Your email"
+                        formControlName="email"
+                >
+                </ha-text>
+            </div>
+
+            <div class="footer">
+                <button
+                        haButton
+                        [haButtonType]="buttonType.HERO_SECONDARY"
+                        type="submit"
+                        [disabled]="profileFormGroup.invalid || loading"
+                        (click)="save()"
+                >
+                    <ha-loader *ngIf="loading"></ha-loader>
+                    <span>Save changes</span>
+                </button>
+            </div>
+        </form>
+    </ha-card>
+</div>

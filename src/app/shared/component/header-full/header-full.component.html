@@ -1,0 +1,13 @@
+<div class="container">
+    <header>
+        <div class="back-button">
+            <a *ngIf="backButton" (click)="back()">
+                <em nz-icon nzType="ic-arrow-left"></em>
+                <div>Back</div>
+            </a>
+        </div>
+        <div class="title">{{ title }}</div>
+        <div class="forward-button">
+        </div>
+    </header>
+</div>

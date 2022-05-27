@@ -7,6 +7,8 @@ import { AccountViewComponent } from './modules/account/account-view/account-vie
 import { AuthoritiesGuard } from './core/auth/authorities.guard';
 import { HabitResolver } from './shared/resolver/habit.resolver';
 import { AccountCreateComponent } from './modules/account/account-create/account-create.component';
+import { AccountEditComponent } from './modules/account/account-edit/account-edit.component';
+import { AccountResolver } from './shared/resolver/account.resolver';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -40,10 +42,21 @@ const routes: Routes = [
       {
         path: 'view',
         component: AccountViewComponent,
+        canActivate: [AuthoritiesGuard],
+        resolve: {
+          account: AccountResolver
+        }
+      },
+      {
+        path: 'edit',
+        component: AccountEditComponent,
         data: {
-          authorities: [],
+          isMenuHidden: true
         },
         canActivate: [AuthoritiesGuard],
+        resolve: {
+          account: AccountResolver
+        }
       }
     ]
   },

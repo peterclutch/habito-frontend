@@ -38,6 +38,8 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { SingleMonthDisplayComponent } from './shared/component/visualization/month-display/single-month-display/single-month-display.component';
 import { AccountCreateComponent } from './modules/account/account-create/account-create.component';
 import { PasswordFieldComponent } from './shared/component/form/password/password-field.component';
+import { AccountEditComponent } from './modules/account/account-edit/account-edit.component';
+import { HeaderFullComponent } from './shared/component/header-full/header-full.component';
 
 registerLocaleData(en);
 
@@ -63,7 +65,9 @@ registerLocaleData(en);
     MonthDisplayComponent,
     SingleMonthDisplayComponent,
     AccountCreateComponent,
-    PasswordFieldComponent
+    PasswordFieldComponent,
+    AccountEditComponent,
+    HeaderFullComponent
   ],
   imports: [
     BrowserModule,

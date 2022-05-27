@@ -1,0 +1,84 @@
+@import "ha-colors";
+
+@import "ha-variables";
+
+.container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 18px;
+}
+
+.title {
+  margin: 30px 0 18px;
+  font-size: 20px;
+  font-weight: 500;
+  color: $color-primary;
+
+  em {
+    margin-right: 12px;
+  }
+}
+
+.form-group {
+  width: 100%;
+  margin: 18px 0 0;
+}
+
+.input-row.inline {
+  display: flex;
+  flex-direction: row;
+
+  .form-group {
+
+    &:nth-child(1) {
+      padding-right: 6px;
+    }
+
+    &:nth-child(2) {
+      padding-left: 6px;
+    }
+  }
+}
+
+.footer {
+  margin-top: 36px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: $mobile-max-width) {
+  .container {
+    padding: 0;
+  }
+
+  .input-row.inline {
+    flex-direction: column;
+
+    .form-group {
+
+      &:nth-child(1) {
+        padding-right: 0;
+      }
+
+      &:nth-child(2) {
+        padding-left: 0;
+      }
+    }
+
+    .empty {
+      display: none;
+    }
+  }
+
+  .footer {
+    justify-content: center;
+
+    .ha-button {
+      width: 100%;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

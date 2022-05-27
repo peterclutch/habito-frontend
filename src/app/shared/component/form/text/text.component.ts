@@ -60,6 +60,7 @@ export class TextComponent implements ControlValueAccessor, OnInit, AfterViewIni
   handleDelete() {
     this.value = null;
     this.handleChange(this.value);
+    this.input.nativeElement.select();
   }
 
   private static capitalizeValue(value: string): string {

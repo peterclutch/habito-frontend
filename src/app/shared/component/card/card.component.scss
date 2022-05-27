@@ -1,6 +1,6 @@
 @import "ha-colors";
 
-@import "ha_variables";
+@import "ha-variables";
 
 .card {
   margin: 0 auto;
@@ -12,6 +12,8 @@
 
 @media screen and (max-width: $mobile-max-width) {
   .card {
+    box-shadow: 0 0 20px 0 rgba(22, 43, 102, .1);
+    border-radius: 0;
     padding: 24px;
   }
 }
