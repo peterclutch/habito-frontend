@@ -1,5 +1,7 @@
 @import "ha-colors";
 
+@import "ha-variables";
+
 .wrapper {
   min-height: 100vh;
   display: flex;
@@ -119,5 +121,33 @@
         color: $color-primary;
       }
     }
+  }
+}
+
+.mobile-menu {
+  visibility: hidden;
+  position: fixed;
+  bottom: 0;
+  height: 74px;
+  width: 100%;
+  background-color: $color-white;
+  border-top: 2px solid rgba(68, 51, 255, 0.1);
+  z-index: 100;
+}
+
+@media screen and (max-width: $mobile-max-width) {
+  .wrapper {
+
+    .habits {
+      display: none;
+    }
+
+    .content {
+      margin: 0;
+    }
+  }
+
+  .mobile-menu {
+    visibility: visible;
   }
 }
