@@ -1,0 +1,45 @@
+@import "ha-colors";
+
+@import "ha-variables";
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+
+  .desktop-menu {
+    max-width: 400px;
+    width: 33%;
+    margin: 28px 8px 28px 16px;
+  }
+
+  .content {
+    margin: 28px 8px 28px 16px;
+    flex-grow: 1;
+  }
+}
+
+.mobile-menu {
+  visibility: hidden;
+  position: fixed;
+  height: 50px;
+  min-height: 50px;
+  width: 100%;
+}
+
+@media screen and (max-width: $mobile-max-width) {
+  .wrapper {
+
+    .desktop-menu {
+      display: none;
+    }
+
+    .content {
+      padding-top: 50px;
+      margin: 0;
+    }
+  }
+
+  .mobile-menu {
+    visibility: visible;
+  }
+}

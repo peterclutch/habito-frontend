@@ -33,4 +33,14 @@
     border-radius: 7px;
     @extend .avatar;
   }
+
+  &--tiny {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    border-radius: 5px;
+    @extend .avatar;
+  }
 }

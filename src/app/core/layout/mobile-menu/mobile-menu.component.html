@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="avatar">
+        <ha-avatar [initials]="account | initials" [size]="AvatarSize.TINY" (click)="toAccount()"></ha-avatar>
+    </div>
+    <div class="menu" (click)="expandMenu()">
+        <em nz-icon nzType="ic-menu"></em>
+    </div>
+</div>
+
+<nz-drawer
+        [nzClosable]="false"
+        [nzVisible]="expandMenuVisible"
+        nzWrapClassName="expandMenuStyle"
+        nzPlacement="top"
+        nzHeight="fit-content"
+        (nzOnClose)="expandMenu()"
+>
+    <ng-container *nzDrawerContent>
+        <div class="close" (click)="expandMenu()">
+            <em nz-icon nzType="ic-close"></em>
+        </div>
+        <div class="list">
+            <div class="habit" routerLinkActive="active" [routerLink]="Routes.home()" (click)="expandMenu()">
+                <div class="habit__emoji">🪴</div>
+                <div class="habit__title">Dashboard</div>
+            </div>
+            <div *ngFor="let habit of habits" class="habit" routerLinkActive="active" [routerLink]="Routes.habits(habit.id)" (click)="expandMenu()">
+                <div class="habit__emoji">{{ habit.icon }}</div>
+                <div class="habit__title">{{ habit.title }}</div>
+            </div>
+        </div>
+    </ng-container>
+</nz-drawer>

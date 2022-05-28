@@ -1,0 +1,12 @@
+<div class="mobile-menu">
+  <ha-mobile-menu [account]="account" [habits]="habits"></ha-mobile-menu>
+</div>
+
+<div class="wrapper">
+  <div class="desktop-menu">
+    <ha-desktop-menu [account]="account" [habits]="habits"></ha-desktop-menu>
+  </div>
+  <div class="content">
+    <ng-content></ng-content>
+  </div>
+</div>

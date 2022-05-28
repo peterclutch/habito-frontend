@@ -1,7 +1,7 @@
-import {Component, HostListener, Inject, OnInit} from '@angular/core';
-import {ModalOverlayRef} from "../modal-overlay-ref";
-import {ButtonType} from "../../directive/button/button.directive";
-import {HABITO_MODAL_DATA} from "../modal.token";
+import { Component, HostListener, Inject } from '@angular/core';
+import { ModalOverlayRef } from '../modal-overlay-ref';
+import { ButtonType } from '../../directive/button/button.directive';
+import { HABITO_MODAL_DATA } from '../modal.token';
 
 @Component({
   templateUrl: './confirm-modal.component.html',

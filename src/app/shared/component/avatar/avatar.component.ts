@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 export enum AvatarSize {
+  TINY = 'tiny',
   SMALL= 'small',
   LARGE = 'large'
 }

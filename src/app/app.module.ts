@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MainComponent } from './core/layout/main/main.component';
-import { LayoutComponent } from './core/layout/habit-container/layout.component';
+import { LayoutComponent } from './core/layout/layout/layout.component';
 import { AvatarComponent } from './shared/component/avatar/avatar.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { CardComponent } from './shared/component/card/card.component';
@@ -40,6 +40,9 @@ import { AccountCreateComponent } from './modules/account/account-create/account
 import { PasswordFieldComponent } from './shared/component/form/password/password-field.component';
 import { AccountEditComponent } from './modules/account/account-edit/account-edit.component';
 import { HeaderFullComponent } from './shared/component/header-full/header-full.component';
+import { MobileMenuComponent } from './core/layout/mobile-menu/mobile-menu.component';
+import { DesktopMenuComponent } from './core/layout/desktop-menu/desktop-menu.component';
+import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 
 registerLocaleData(en);
 
@@ -67,7 +70,9 @@ registerLocaleData(en);
     AccountCreateComponent,
     PasswordFieldComponent,
     AccountEditComponent,
-    HeaderFullComponent
+    HeaderFullComponent,
+    MobileMenuComponent,
+    DesktopMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -78,6 +83,7 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     NzIconModule.forRoot(icons),
     NzPopoverModule,
+    NzDrawerModule,
     NzToolTipModule,
     CookieModule.forRoot(),
     NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-', caseSensitive: true }),
