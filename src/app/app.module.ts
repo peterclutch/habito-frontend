@@ -47,56 +47,53 @@ import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [
-    MainComponent,
-    LayoutComponent,
-    AvatarComponent,
-    DashboardComponent,
-    CardComponent,
-    HabitComponent,
-    LoginComponent,
-    LabelComponent,
-    TextComponent,
-    LoaderComponent,
-    AccountViewComponent,
-    InitialsPipe,
-    HabitAddModalComponent,
-    ButtonDirective,
-    EmojiPickerComponent,
-    DotMenuComponent,
-    ConfirmModalComponent,
-    MonthDisplayComponent,
-    SingleMonthDisplayComponent,
-    AccountCreateComponent,
-    PasswordFieldComponent,
-    AccountEditComponent,
-    HeaderFullComponent,
-    MobileMenuComponent,
-    DesktopMenuComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    FormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    NzIconModule.forRoot(icons),
-    NzPopoverModule,
-    NzDrawerModule,
-    NzToolTipModule,
-    CookieModule.forRoot(),
-    NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-', caseSensitive: true }),
-    OverlayModule
-  ],
-  providers: [
-    { provide: NZ_I18N, useValue: en_US },
-    httpInterceptorProviders,
-    MenuOverlayService
-  ],
-  bootstrap: [MainComponent],
-  entryComponents: [
-    HabitAddModalComponent
-  ]
+    declarations: [
+        MainComponent,
+        LayoutComponent,
+        AvatarComponent,
+        DashboardComponent,
+        CardComponent,
+        HabitComponent,
+        LoginComponent,
+        LabelComponent,
+        TextComponent,
+        LoaderComponent,
+        AccountViewComponent,
+        InitialsPipe,
+        HabitAddModalComponent,
+        ButtonDirective,
+        EmojiPickerComponent,
+        DotMenuComponent,
+        ConfirmModalComponent,
+        MonthDisplayComponent,
+        SingleMonthDisplayComponent,
+        AccountCreateComponent,
+        PasswordFieldComponent,
+        AccountEditComponent,
+        HeaderFullComponent,
+        MobileMenuComponent,
+        DesktopMenuComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        FormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        NzIconModule.forRoot(icons),
+        NzPopoverModule,
+        NzDrawerModule,
+        NzToolTipModule,
+        CookieModule.forRoot(),
+        NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-', caseSensitive: true }),
+        OverlayModule
+    ],
+    providers: [
+        { provide: NZ_I18N, useValue: en_US },
+        httpInterceptorProviders,
+        MenuOverlayService
+    ],
+    bootstrap: [MainComponent]
 })
 export class AppModule { }
