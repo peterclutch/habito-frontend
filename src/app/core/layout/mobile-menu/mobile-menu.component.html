@@ -8,11 +8,11 @@
 </div>
 
 <nz-drawer
-        [nzClosable]="false"
         [nzVisible]="expandMenuVisible"
         nzWrapClassName="expandMenuStyle"
         nzPlacement="top"
-        nzHeight="fit-content"
+        nzHeight="'100vh'"
+        [nzClosable]="false"
         (nzOnClose)="expandMenu()"
 >
     <ng-container *nzDrawerContent>
