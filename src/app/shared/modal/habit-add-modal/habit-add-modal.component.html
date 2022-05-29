@@ -4,7 +4,7 @@
     <em nz-icon nzType="ic-clear" (click)="close()"></em>
   </header>
 
-  <form [formGroup]="habitForm">
+  <form [formGroup]="habitForm" (ngSubmit)="createHabit()">
     <div class="input-line">
       <div>
         <ha-label for="icon">Emoji</ha-label>
@@ -27,6 +27,7 @@
       <button
         haButton
         [haButtonType]="buttonType.HERO_SIMPLE"
+        type="button"
         (click)="close()">
         Cancel
       </button>
@@ -36,7 +37,7 @@
               [haButtonType]="buttonType.HERO_PRIMARY"
               [style.--degree]="degree"
               [disabled]="habitForm.invalid || loading"
-              (click)="createHabit()"
+              type="submit"
       >
         <ha-loader *ngIf="loading"></ha-loader>
         <span>Create</span>

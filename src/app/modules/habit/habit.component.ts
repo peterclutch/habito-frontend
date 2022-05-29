@@ -7,6 +7,7 @@ import { Routes } from '../../routes';
 import { MenuOverlayService } from '../../shared/modal/menu-overlay.service';
 import { ConfirmModalComponent } from '../../shared/modal/confirm-modal/confirm-modal.component';
 import { HabitCheckService } from '../../shared/service/habit-check.service';
+import { HabitAddModalComponent } from '../../shared/modal/habit-add-modal/habit-add-modal.component';
 
 @Component({
   selector: 'ha-habit',
@@ -19,20 +20,35 @@ export class HabitComponent implements OnInit {
     Action.create<IHabit>({
       label: 'Edit',
       icon: 'ic-edit',
-      executor: (entity) => {}
+      executor: (entity) => {
+        this.menuOverlayService.open({
+          component: HabitAddModalComponent,
+          data: {
+            action: (habit: IHabit) => {
+              this.habitService.updateHabits()
+              this.habit = habit;
+            },
+            entity
+          }
+        });
+      }
     }),
     Action.create<IHabit>({
       label: 'Delete',
       icon: 'ic-delete',
       executor: (entity) => {
-        if (entity) {
-          this.menuOverlayService.open({}, () => {
-            this.habitService.delete(entity.id).subscribe(() => {
-              this.habitService.updateHabits();
-              this.router.navigate([Routes.home()]);
-            });
-          }, ConfirmModalComponent)
-        }
+        if (!entity) { return }
+        this.menuOverlayService.open({
+          component: ConfirmModalComponent,
+          data: {
+            action: () => {
+              this.habitService.delete(entity.id).subscribe(() => {
+                this.habitService.updateHabits();
+                this.router.navigate([Routes.home()]);
+              });
+            }
+          }
+        })
       }
     })
   ];
@@ -40,11 +56,11 @@ export class HabitComponent implements OnInit {
   habit: IHabit = Habit.newEmpty();
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private habitService: HabitService,
-    private habitCheckService: HabitCheckService,
-    private menuOverlayService: MenuOverlayService
+      private route: ActivatedRoute,
+      private router: Router,
+      private habitService: HabitService,
+      private habitCheckService: HabitCheckService,
+      private menuOverlayService: MenuOverlayService
   ) {}
 
   ngOnInit(): void {

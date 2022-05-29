@@ -6,7 +6,8 @@ import { HABITO_MODAL_DATA } from '../modal.token';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ButtonType } from '../../directive/button/button.directive';
 import { Routes } from '../../../routes';
-import { IHabit } from '../../model/habit.model';
+import { Habit, IHabit } from '../../model/habit.model';
+import { ModalData } from '../modal.model';
 
 @Component({
   templateUrl: './habit-add-modal.component.html',
@@ -27,8 +28,8 @@ export class HabitAddModalComponent implements OnInit {
     private router: Router,
     private habitService: HabitService,
     public modalRef: ModalOverlayRef,
-    @Inject(HABITO_MODAL_DATA) public action: (data: any) => void
-  ) { }
+    @Inject(HABITO_MODAL_DATA) public data: ModalData
+) { }
 
   get degree(): string {
     return `${this._degree}deg`;
@@ -40,17 +41,35 @@ export class HabitAddModalComponent implements OnInit {
 
   createHabit(): void {
     this.loading = true;
+    if (this.data.entity) {
+      this.habitService.update({ ...this.data.entity, ...this.habitForm.value }).subscribe((habit: IHabit) => {
+        this.handleSucces(habit);
+      }, () => {
+        this.loading = false;
+      });
+    } else {
+      this.habitService.create(this.habitForm.value).subscribe((habit: IHabit) => {
+        this.handleSucces(habit);
+      }, () => {
+        this.loading = false;
+      });
+    }
+  }
 
-    this.habitService.create(this.habitForm.value).subscribe((habit: IHabit) => {
-      this.close();
-      this.action(habit);
-      this.router.navigate([Routes.habits(habit.id)])
-    }, () => {
-      this.loading = false;
-    });
+  handleSucces(habit: IHabit): void {
+    this.close();
+    this.data.action(habit);
+    this.router.navigate([Routes.habits(habit.id)]);
   }
 
   ngOnInit(): void {
+    if (this.data.entity) {
+      this.habitForm = this.formBuilder.group({
+        title: [this.data.entity.title, [Validators.required]],
+        icon: [this.data.entity.icon, [Validators.required]]
+      })
+    }
+
     setInterval(() => {
       this._degree = this._degree >= 360 ? 0 : this._degree + 2;
     }, 80);

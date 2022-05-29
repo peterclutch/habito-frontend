@@ -35,7 +35,11 @@ export class HabitService {
   }
 
   create(habit: IHabit): Observable<IHabit> {
-    return this.http.post<IHabit>(SERVER_API_URL + 'api/habits', habit, { observe: 'body' });
+    return this.http.post<IHabit>(`${SERVER_API_URL}api/habits`, habit, { observe: 'body' });
+  }
+
+  update(habit: IHabit): Observable<IHabit> {
+    return this.http.put<IHabit>(`${SERVER_API_URL}api/habits/${habit.id}`, habit, { observe: 'body' });
   }
 
   delete(id: number) {

@@ -1,5 +1,5 @@
 <div class="page-container">
-  <form class="login-container" [formGroup]="loginForm">
+  <form class="login-container" [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="logo">habito🪴</div>
     <div class="login-container__input">
       <div>
@@ -22,7 +22,7 @@
           placeholder="Your password"
           prefixIcon="ic-password"
           formControlName="password"
-          autocomplete="new-password"
+          autocomplete="current-password"
         ></ha-text>
       </div>
       <div>
@@ -35,7 +35,7 @@
       [haButtonType]="buttonType.HERO_PRIMARY"
       [style.--degree]="degree"
       [disabled]="loginForm.invalid || loading"
-      (click)="login()"
+      type="submit"
     >
       <ha-loader *ngIf="loading"></ha-loader>
       <span>Sign in</span>

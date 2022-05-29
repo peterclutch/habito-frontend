@@ -5,6 +5,7 @@ import { MenuOverlayService } from '../../../shared/modal/menu-overlay.service';
 import { HabitService } from '../../../shared/service/habit.service';
 import { Routes } from '../../../routes';
 import { Router } from '@angular/router';
+import { HabitAddModalComponent } from '../../../shared/modal/habit-add-modal/habit-add-modal.component';
 
 @Component({
   selector: 'ha-desktop-menu',
@@ -24,7 +25,14 @@ export class DesktopMenuComponent {
   ) { }
 
   addHabitModal() {
-    this.menuOverlayService.open({}, (habit: IHabit) => { this.habitService.updateHabits() });
+    this.menuOverlayService.open({
+      component: HabitAddModalComponent,
+      data: {
+        action: (habit: IHabit) => {
+          this.habitService.updateHabits()
+        },
+      }
+    });
   }
 
   toAccount() {

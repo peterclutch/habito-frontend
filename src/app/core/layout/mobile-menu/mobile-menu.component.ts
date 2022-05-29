@@ -6,6 +6,7 @@ import { Routes } from '../../../routes';
 import { Router } from '@angular/router';
 import { MenuOverlayService } from '../../../shared/modal/menu-overlay.service';
 import { HabitService } from '../../../shared/service/habit.service';
+import { HabitAddModalComponent } from '../../../shared/modal/habit-add-modal/habit-add-modal.component';
 
 @Component({
   selector: 'ha-mobile-menu',
@@ -36,7 +37,14 @@ export class MobileMenuComponent {
 
   addHabitModal() {
     this.expandMenu()
-    this.menuOverlayService.open({}, (habit: IHabit) => { this.habitService.updateHabits() });
+    this.menuOverlayService.open({
+      component: HabitAddModalComponent,
+      data: {
+        action: (habit: IHabit) => {
+          this.habitService.updateHabits()
+        },
+      }
+    });
   }
 
 }

@@ -2,7 +2,7 @@
     <ha-card [size]="cardSize.FORM">
         <div class="title">🪴 Create your own habito account!</div>
 
-        <form [formGroup]="accountFormGroup">
+        <form [formGroup]="accountFormGroup" (ngSubmit)="create()">
             <div class="row">
                 <div class="input-wrapper">
                     <ha-label for="email">email</ha-label>
@@ -25,6 +25,7 @@
                 <button
                         haButton
                         [haButtonType]="buttonType.HERO_SIMPLE"
+                        type="button"
                         (click)="back()">
                     Back
                 </button>
@@ -34,7 +35,6 @@
                         [haButtonType]="buttonType.HERO_SECONDARY"
                         type="submit"
                         [disabled]="accountFormGroup.invalid || loading"
-                        (click)="create()"
                 >
                     <ha-loader *ngIf="loading"></ha-loader>
                     <span>Create account</span>

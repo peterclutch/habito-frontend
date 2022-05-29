@@ -5,7 +5,7 @@
 
 <div class="container">
     <ha-card>
-        <form [formGroup]="profileFormGroup">
+        <form [formGroup]="profileFormGroup" (ngSubmit)="save()">
             <div class="title"><em nz-icon nzType="ic-information"></em> General information</div>
 
             <div class="input-row inline">
