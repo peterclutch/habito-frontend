@@ -50,7 +50,7 @@
 }
 
 .list {
-  margin-top: 24px;
+  margin-top: 36px;
 
   .habit {
     display: flex;
@@ -84,3 +84,31 @@
     }
   }
 }
+
+.add-habit {
+  margin: 24px 0;
+  padding: 6px;
+
+  &__button {
+    width: fit-content;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    span {
+      padding-left: 6px;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    &:hover {
+
+      span {
+        color: $color-primary;
+      }
+    }
+  }
+}
+

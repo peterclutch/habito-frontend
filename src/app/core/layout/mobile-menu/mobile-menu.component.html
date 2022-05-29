@@ -29,5 +29,12 @@
                 <div class="habit__title">{{ habit.title }}</div>
             </div>
         </div>
+
+        <div class="add-habit">
+            <div class="add-habit__button" (click)="addHabitModal()">
+                <img alt="" src="assets/svg/ic-add.svg">
+                <span>New habit</span>
+            </div>
+        </div>
     </ng-container>
 </nz-drawer>

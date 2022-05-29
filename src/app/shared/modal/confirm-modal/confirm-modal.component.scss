@@ -1,7 +1,6 @@
 @import "ha-colors";
 
 .container {
-  min-width: 420px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,4 +35,10 @@ header {
       color: $color-primary;
     }
   }
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

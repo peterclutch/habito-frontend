@@ -26,20 +26,20 @@
     <div class="buttons">
       <button
         haButton
-        [haButtonType]="buttonType.HERO_PRIMARY"
-        [style.--degree]="degree"
-        [disabled]="habitForm.invalid || loading"
-        (click)="createHabit()"
-      >
-        <ha-loader *ngIf="loading"></ha-loader>
-        <span>Create</span>
-      </button>
-
-      <button
-        haButton
         [haButtonType]="buttonType.HERO_SIMPLE"
         (click)="close()">
         Cancel
+      </button>
+
+      <button
+              haButton
+              [haButtonType]="buttonType.HERO_PRIMARY"
+              [style.--degree]="degree"
+              [disabled]="habitForm.invalid || loading"
+              (click)="createHabit()"
+      >
+        <ha-loader *ngIf="loading"></ha-loader>
+        <span>Create</span>
       </button>
     </div>
   </form>

@@ -4,6 +4,8 @@ import { IHabit } from '../../../shared/model/habit.model';
 import { AvatarSize } from '../../../shared/component/avatar/avatar.component';
 import { Routes } from '../../../routes';
 import { Router } from '@angular/router';
+import { MenuOverlayService } from '../../../shared/modal/menu-overlay.service';
+import { HabitService } from '../../../shared/service/habit.service';
 
 @Component({
   selector: 'ha-mobile-menu',
@@ -19,7 +21,9 @@ export class MobileMenuComponent {
   expandMenuVisible: boolean = false;
 
   constructor(
-      private router: Router
+      private router: Router,
+      private menuOverlayService: MenuOverlayService,
+      private habitService: HabitService
   ) { }
 
   toAccount() {
@@ -28,6 +32,11 @@ export class MobileMenuComponent {
 
   expandMenu() {
     this.expandMenuVisible = !this.expandMenuVisible;
+  }
+
+  addHabitModal() {
+    this.expandMenu()
+    this.menuOverlayService.open({}, (habit: IHabit) => { this.habitService.updateHabits() });
   }
 
 }
