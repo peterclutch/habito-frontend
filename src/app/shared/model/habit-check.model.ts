@@ -1,3 +1,5 @@
+import { Habit, IHabit } from './habit.model';
+
 export interface IHabitCheck {
   id: number;
   habitId: number;
@@ -9,6 +11,19 @@ export class HabitCheck implements IHabitCheck {
     public id: number,
     public habitId: number,
     public date: Date
+  ) {
+  }
+}
+
+export interface ICheckOverview {
+  date: Date;
+  checks: IHabit[];
+}
+
+export class CheckOverview implements ICheckOverview {
+  private constructor(
+      public date: Date,
+      public checks: Habit[]
   ) {
   }
 }

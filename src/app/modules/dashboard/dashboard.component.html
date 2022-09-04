@@ -1,3 +1,8 @@
 <ha-card>
   <h1>Welcome back <span>{{account?.firstName}} {{account?.lastName}}!</span></h1>
+
+  <strong>Last 7 days:</strong>
+  <div *ngFor="let date of dates">
+    {{date | date:'MMMM d'}}: <span class="emoji" *ngFor="let check of findChecksOnDate(date)"> {{check.icon}}</span>
+  </div>
 </ha-card>
